@@ -33,6 +33,35 @@ Histórico completo do projeto: o que foi feito, o que foi decidido, o que deu c
 
 ## Registros
 
+## 2026-07-31 — Repositório no GitHub
+
+**O quê:** `git init` + primeiro commit + repositório remoto **privado**
+`Thuglife22741/calca-jeans`. 13 arquivos versionados.
+
+**Por quê privado:** projeto comercial com oferta, preço e margem ainda em definição. Dá para abrir
+depois; o contrário custa mais.
+
+**Verificado após o push:** `.env` retorna 404 no remoto (não subiu) · o token real foi conferido
+por comparação direta contra o conteúdo staged, não só por padrão de regex · o remote não guarda
+credencial embutida na URL.
+
+**Duas coisas foram excluídas do versionamento:**
+- `fop-tracking/` — é um clone da skill, com `.git` próprio. Commitado como estava viraria um
+  gitlink quebrado (pasta vazia para quem clonasse). Continua no disco, só não é versionado. Se um
+  dia precisar viajar junto, tem que virar submódulo de verdade.
+- `hero.png` — screenshot que o Playwright deixou na raiz durante a verificação. Removido.
+
+**Pendência de autenticação:** o remote está com URL limpa, sem token. O `git push` vai pedir
+credencial. Resolver com `git config --global credential.helper manager` (Git Credential Manager,
+já vem no Git for Windows) na primeira vez.
+
+⚠️ **O token do `.env` trafegou pelo chat.** Continua fora do repositório, mas convém revogar em
+github.com/settings/tokens e gerar outro — de preferência um fine-grained, com escopo só neste repo.
+
+**Próximo passo:** segue igual — fotos, preço, gateway e medidas reais.
+
+---
+
 ## 2026-07-31 — LP masculina construída (placeholder-first) e verificada
 
 **O quê:** Estrutura `lp/` criada e a página montada inteira: 11 seções, CSS inline, JS vanilla,
