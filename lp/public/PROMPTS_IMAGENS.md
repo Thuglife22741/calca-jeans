@@ -20,11 +20,23 @@ O Fernando tem os arquivos do fornecedor. Cada uma substitui um `data-ph` no `in
 | 2 | `Frente inteira` | a peça deitada ou no manequim, frente | 520px + `-hd` 760px |
 | 3 | `Costas / bolso traseiro` | costas, com o bolso e a costura visíveis | 520px + `-hd` |
 | 4 | `Close do tecido e da costura` | macro — é o que prova a qualidade | 520px + `-hd` |
-| 5 | `Cós e botão` | detalhe do cós, onde o elastano aparece | 520px + `-hd` |
+| 5 | `Cós e botão` | **zíper e botão de metal, bem de perto** | 520px + `-hd` |
 | 6 | `Barra / caimento no sapato` | mostra o comprimento e o caimento real | 520px + `-hd` |
 
 A #4 é a que mais vende num ângulo de conforto — o elastano é invisível numa foto de corpo inteiro,
 mas dá para ver a trama de perto.
+
+**A #5 virou obrigatória.** O checklist da pesquisa (`objecoes_e_desejos_jeans_masculino.md`, §4)
+pede foto de zíper e botão justamente porque aviamento frágil é reclamação recorrente — e o FAQ da
+página **manda o leitor conferir essa foto**. Sem ela, a resposta fica sem prova. Tem que dar para
+ver que é metal.
+
+## Falta um vídeo (não é foto)
+
+A pesquisa pede **vídeo de elasticidade**: a calça esticando e voltando ao lugar. É a prova mais
+forte do ângulo de conforto, e nenhuma foto substitui — elastano não aparece em imagem parada.
+Curto, sem áudio, em loop. Serve como criativo de anúncio também. Ainda não tem lugar na página;
+quando existir, entra logo abaixo do hero.
 
 ---
 

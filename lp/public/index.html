@@ -194,6 +194,16 @@ h3{font-size:20px}
 .stat b{display:block;font-family:var(--display);font-size:26px;color:var(--brand);line-height:1.1}
 .stat span{display:block;font-size:12.5px;color:var(--ink-soft);margin-top:4px}
 
+/* ── nota da ficha técnica ── */
+.ficha-nota{margin-top:16px;font-size:14.5px;color:var(--ink-soft);text-align:center}
+.ficha-nota b{color:var(--brand)}
+
+/* ── como medir ── */
+.medir{background:var(--copper-soft);border-radius:14px;padding:18px 18px 20px;margin-bottom:18px}
+.medir h3{font-size:17px;color:var(--copper-ink);margin-bottom:8px}
+.medir p{font-size:15px;color:var(--ink)}
+.medir b{color:var(--copper-ink)}
+
 /* ── tabela de medidas ── */
 .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);
   border-radius:14px;background:#fff}
@@ -219,6 +229,7 @@ tbody tr:last-child td{border-bottom:0}
 .plan-tag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--brand-grad);
   color:#fff;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;
   padding:6px 14px;border-radius:50px;white-space:nowrap}
+.plan-tag.alt{background:var(--copper-ink)}   /* --copper puro falha contraste com branco */
 .plan h3{text-align:center;font-size:22px}
 .plan-desc{text-align:center;font-size:14px;color:var(--ink-soft);margin-top:6px}
 .price{text-align:center;margin:18px 0}
@@ -317,8 +328,9 @@ footer b{display:block;font-family:var(--display);font-size:17px;color:var(--ink
 <header class="hero">
   <div class="wrap">
     <h1>A calça jeans que <span class="hl">não aperta</span> depois do almoço</h1>
-    <p class="lead">Jeans masculino com elastano: cede onde precisa ceder, segura onde precisa segurar.
-      Você senta, dirige, agacha e esquece que está de jeans.</p>
+    <p class="lead">Jeans masculino com elastano: cede onde precisa ceder, segura onde precisa
+      segurar. Você senta, dirige, agacha e esquece que está de jeans — e ela continua a mesma
+      calça depois da décima lavagem.</p>
 
     <div class="hero-media">
       <!-- LCP: trocar por <img src="assets/hero.webp" width="540" height="675"
@@ -330,7 +342,7 @@ footer b{display:block;font-family:var(--display);font-size:17px;color:var(--ink
     <p class="btn-sub">Escolha seu tamanho na próxima tela</p>
 
     <div class="hero-selos">
-      <span class="selo">📏 Tamanhos <b>[38 ao 48]</b></span>
+      <span class="selo">📏 Medidas <b>em cm da peça real</b></span>
       <span class="selo">🔄 Troca de tamanho</span>
       <span class="selo">🛡️ 7 dias para devolver</span>
     </div>
@@ -344,27 +356,35 @@ footer b{display:block;font-family:var(--display);font-size:17px;color:var(--ink
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow">A diferença</span>
-        <h2>Não é jeans <span class="hl-c">rígido</span>. É jeans <span class="hl">com elastano</span>.</h2>
+        <h2>Você já comprou<br>essa calça <span class="hl-c">errada</span> antes</h2>
+        <p class="lead">Todo mundo já teve uma. A gente fez a nossa olhando exatamente para o que
+          dá errado na dos outros.</p>
       </div>
 
+      <!-- ⚠️ CLAIMS: as 6 afirmações do card .win dependem da peça real do fornecedor.
+           NÃO PUBLICAR sem confirmar cada uma — ver lp/CLAIMS.md. -->
       <div class="vs">
         <div class="vs-card dim">
-          <h3>Jeans 100% algodão</h3>
+          <h3>A calça que decepcionou</h3>
           <ul>
-            <li>Aperta a cintura quando você senta</li>
-            <li>Prende na coxa e no joelho ao agachar</li>
-            <li>Precisa "amaciar" por semanas de uso</li>
-            <li>Marca vinco atrás do joelho</li>
+            <li>Gancho curto: aperta e sobe onde não devia</li>
+            <li>Aumenta um número inteiro depois da primeira lavagem</li>
+            <li>Solta tinta e mancha o sofá claro e a camisa branca</li>
+            <li>Zíper que emperra e quebra no primeiro mês</li>
+            <li>Rasga no entrepernas com dois meses de uso</li>
+            <li>O bolso cede com o peso do celular</li>
           </ul>
         </div>
         <div class="vs-mid">VS</div>
         <div class="vs-card win">
-          <h3>[NOME-PROVISORIO] com elastano</h3>
+          <h3>[NOME-PROVISORIO]</h3>
           <ul>
-            <li>Acompanha o movimento e volta ao lugar</li>
-            <li>Sobra de conforto na coxa sem parecer largo</li>
-            <li>Confortável desde a primeira vez que veste</li>
-            <li>Cai reto o dia inteiro</li>
+            <li>Gancho na medida de quem tem coxa grossa</li>
+            <li>Sai da máquina do mesmo tamanho que entrou</li>
+            <li>Índigo fixado: não passa cor para o que está do lado</li>
+            <li>Zíper de metal, não de plástico</li>
+            <li>Costura reforçada justo onde as outras abrem</li>
+            <li>Forro de bolso que aguenta celular grande</li>
           </ul>
         </div>
       </div>
@@ -400,29 +420,47 @@ footer b{display:block;font-family:var(--display);font-size:17px;color:var(--ink
   <section class="sec band tilt reveal">
     <div class="wrap">
       <div class="sec-head">
-        <span class="eyebrow">Por que veste bem</span>
-        <h2>Quatro coisas que <span class="hl">você sente</span> no primeiro dia</h2>
+        <span class="eyebrow">Ponto a ponto</span>
+        <h2>Onde jeans barato falha<br>— e o que <span class="hl">fizemos</span></h2>
       </div>
+
+      <!-- ⚠️ CLAIMS: cada card afirma algo sobre a peça. Ver lp/CLAIMS.md. -->
       <div class="cards">
         <div class="card i">
-          <div class="card-ico">🧘</div>
-          <h3>Elastano na medida certa</h3>
-          <p>Estica o suficiente para acompanhar o movimento, sem virar legging nem perder a forma.</p>
+          <div class="card-ico">🦵</div>
+          <h3>O gancho é de homem</h3>
+          <p>Virou moda calça masculina com gancho curto e coxa apertada. Se você tem perna grossa,
+            sabe o desconforto. A nossa modelagem dá folga na coxa sem sobrar pano na canela.</p>
         </div>
         <div class="card">
-          <div class="card-ico">🦵</div>
-          <h3>Modelagem que respeita a coxa</h3>
-          <p>Folga onde o corpo precisa, sem sobrar pano na canela.</p>
+          <div class="card-ico">🌀</div>
+          <h3>Não encolhe nem lacea</h3>
+          <p>A reclamação mais comum é a calça sair da máquina um número maior e nunca mais voltar
+            ao corte. O tecido é pré-encolhido: sai do mesmo tamanho que entrou.</p>
         </div>
         <div class="card i">
           <div class="card-ico">🎨</div>
-          <h3>Índigo que não desbota fácil</h3>
-          <p>A cor aguenta a lavagem de máquina e continua parecendo calça nova.</p>
+          <h3>Não mancha o que está do lado</h3>
+          <p>Jeans que solta tinta marca o sofá claro, o banco do carro e a camisa branca na mesma
+            lavagem. O índigo daqui é fixado — pode lavar junto sem susto.</p>
         </div>
         <div class="card">
+          <div class="card-ico">🔩</div>
+          <h3>Zíper e botão de metal</h3>
+          <p>Aviamento de plástico emperra e quebra no primeiro mês, e aí a calça inteira vira lixo.
+            Aqui zíper e botão são de metal, e você vê isso de perto nas fotos.</p>
+        </div>
+        <div class="card i">
           <div class="card-ico">🧵</div>
-          <h3>Costura reforçada na virilha</h3>
-          <p>O ponto que mais abre em calça barata é o que mais reforçamos aqui.</p>
+          <h3>Costura reforçada no entrepernas</h3>
+          <p>É onde toda calça barata abre, e quase sempre com pouco tempo de uso. É justamente o
+            ponto que recebe reforço aqui.</p>
+        </div>
+        <div class="card">
+          <div class="card-ico">📱</div>
+          <h3>Bolso que aguenta o celular</h3>
+          <p>Celular de hoje é grande e pesado, e forro fino cede em semanas. O forro é em sarja,
+            mais firme que o de algodão fino que se usa por aí.</p>
         </div>
       </div>
     </div>
@@ -462,9 +500,12 @@ footer b{display:block;font-family:var(--display);font-size:17px;color:var(--ink
       <div class="stats">
         <div class="stat"><b>[98%]</b><span>algodão</span></div>
         <div class="stat"><b>[2%]</b><span>elastano</span></div>
-        <div class="stat"><b>[11oz]</b><span>peso do tecido</span></div>
+        <div class="stat"><b>[11oz]</b><span>gramatura</span></div>
         <div class="stat"><b>[38–48]</b><span>tamanhos</span></div>
       </div>
+      <p class="ficha-nota">Gramatura é o peso do tecido. Abaixo de 10oz o jeans fica fino e rasga
+        cedo; acima de 12oz vira calça de trabalho pesada. <b>[11oz]</b> é o ponto onde ele dura sem
+        deixar de ser confortável.</p>
     </div>
   </section>
 
@@ -474,7 +515,17 @@ footer b{display:block;font-family:var(--display);font-size:17px;color:var(--ink
       <div class="sec-head">
         <span class="eyebrow">Tabela de medidas</span>
         <h2>Qual número <span class="hl">é o seu</span></h2>
+        <p class="lead">Estas medidas saíram da peça real, com trena, não da tabela do fabricante.
+          É por isso que elas batem quando a calça chega.</p>
       </div>
+
+      <div class="medir">
+        <h3>Não sabe seu número? Não chuta.</h3>
+        <p>Pega a calça que melhor te serve hoje, deita ela na cama e mede o cós de ponta a ponta.
+          Multiplica por 2. Acha esse número na coluna <b>Cintura</b> abaixo — é o seu tamanho.
+          Leva 30 segundos e resolve o medo de errar.</p>
+      </div>
+
       <div class="tbl-wrap">
         <table>
           <caption>PENDENTE: preencher com as medidas reais do fornecedor. Medidas em centímetros,
@@ -554,7 +605,25 @@ footer b{display:block;font-family:var(--display);font-size:17px;color:var(--ink
             <li>Troca de tamanho nas duas</li>
             <li>7 dias para devolver</li>
           </ul>
-          <a class="btn pulse" href="https://EXEMPLO-CHECKOUT.com/2un" data-checkout="completo" data-cta="plano-2">Quero o kit</a>
+          <a class="btn pulse" href="https://EXEMPLO-CHECKOUT.com/2un" data-checkout="completo" data-cta="plano-2">Quero o kit de 2</a>
+        </div>
+
+        <div class="plan">
+          <span class="plan-tag alt">Menor preço por calça</span>
+          <h3>Kit 3 calças</h3>
+          <p class="plan-desc">Renova o guarda-roupa de uma vez</p>
+          <div class="price">
+            <s>de R$ [--]</s>
+            <b><small>R$</small>[--]</b>
+            <span>sai a R$ [--] cada</span>
+          </div>
+          <ul>
+            <li>3 calças, escolhe os tamanhos e as cores</li>
+            <li>Economia de R$ [--] no total</li>
+            <li>Troca de tamanho nas três</li>
+            <li>7 dias para devolver</li>
+          </ul>
+          <a class="btn ghost" href="https://EXEMPLO-CHECKOUT.com/3un" data-checkout="kit3" data-cta="plano-3">Quero o kit de 3</a>
         </div>
       </div>
     </div>
@@ -587,26 +656,48 @@ footer b{display:block;font-family:var(--display);font-size:17px;color:var(--ink
       <div class="faq">
         <details>
           <summary>E se o tamanho não servir?</summary>
-          <p>Você pede a troca e manda a calça de volta. [PENDENTE: definir quem paga o frete da
-            troca e em quantos dias a nova é enviada.]</p>
+          <p>Você pede a troca e manda a calça de volta. Antes disso, faça o teste da tabela de
+            medidas ali em cima — ele resolve a maioria dos casos em 30 segundos.
+            [PENDENTE: definir quem paga o frete da troca e em quantos dias a nova é enviada.]</p>
+        </details>
+        <details>
+          <summary>Encolhe ou aumenta depois que lava?</summary>
+          <p>Não. É a reclamação mais comum em jeans de varejo — a calça sai da máquina um número
+            maior e nunca mais volta ao corte original. O tecido daqui é pré-encolhido justamente
+            para sair do mesmo tamanho que entrou. Lave do avesso, em água fria, e evite a secadora.</p>
+        </details>
+        <details>
+          <summary>Solta tinta e mancha as outras roupas?</summary>
+          <p>Não. Jeans com índigo mal fixado passa cor para a camisa branca, para o sofá claro e
+            para o banco do carro — é reclamação de marca grande, não só de calça barata. O índigo
+            daqui é fixado. Ainda assim, na primeira lavagem, lave sozinha: é o que se recomenda
+            para qualquer jeans escuro, de qualquer marca.</p>
+        </details>
+        <details>
+          <summary>O zíper e o botão são resistentes?</summary>
+          <p>São de metal, não de plástico. Aviamento fraco emperra e quebra no primeiro mês, e aí
+            a calça inteira se perde por causa de uma peça de centavos. Tem uma foto do zíper e do
+            botão de perto no carrossel — dá para ver o acabamento.</p>
+        </details>
+        <details>
+          <summary>Serve para quem tem coxa grossa?</summary>
+          <p>É para quem a modelagem foi pensada. Virou moda calça masculina com gancho curto e
+            coxa apertada, e quem tem perna grossa fica sem opção. Aqui o gancho é mais alto e há
+            folga na coxa, sem sobrar pano na canela.</p>
+        </details>
+        <details>
+          <summary>O elastano deixa com cara de moletom?</summary>
+          <p>Não. São [2%] de elastano em [98%] de algodão — o suficiente para acompanhar o
+            movimento, mantendo a aparência e a textura de jeans de verdade.</p>
+        </details>
+        <details>
+          <summary>O bolso aguenta celular grande?</summary>
+          <p>O forro é em sarja, mais firme que o algodão fino usado na maioria. Celular grande em
+            forro fino cede em semanas — aqui não é o caso.</p>
         </details>
         <details>
           <summary>Quanto tempo demora para chegar?</summary>
           <p>[PENDENTE: prazo real por região, depois de definir a transportadora.]</p>
-        </details>
-        <details>
-          <summary>O elastano deixa a calça com cara de moletom?</summary>
-          <p>Não. São [2%] de elastano em [98%] de algodão — o suficiente para a calça acompanhar o
-            movimento, mantendo a aparência e a textura de jeans de verdade.</p>
-        </details>
-        <details>
-          <summary>Pode lavar na máquina?</summary>
-          <p>Pode. Lave do avesso, em água fria, e evite a secadora — assim o índigo dura muito mais.</p>
-        </details>
-        <details>
-          <summary>Serve para quem tem coxa mais larga?</summary>
-          <p>É exatamente para quem a modelagem foi pensada: folga na coxa sem sobrar pano na canela.
-            Confira a tabela de medidas para acertar o número.</p>
         </details>
         <details>
           <summary>Como eu pago?</summary>

@@ -33,6 +33,61 @@ Histórico completo do projeto: o que foi feito, o que foi decidido, o que deu c
 
 ## Registros
 
+## 2026-07-31 — Copy reescrita sobre a pesquisa de objeções
+
+**O quê:** A copy da LP foi refeita a partir de `objecoes_e_desejos_jeans_masculino.md`. A página
+deixou de argumentar em geral e passou a responder, uma a uma, às sete reclamações reais de
+consumidor que a pesquisa levantou no Reclame Aqui e no Reddit.
+
+**A mudança de eixo:** conforto continua sendo o **desejo** que abre a página, mas a pesquisa deixou
+claro que o que trava a compra é outra coisa — medo de errar o número e medo de a calça não durar.
+Então a estrutura virou: entra pelo desejo (não aperta), e o miolo inteiro mata objeção.
+
+**O que mudou seção por seção:**
+- **Comparativo:** era genérico ("precisa amaciar", "marca vinco"). Agora são as reclamações reais —
+  gancho curto, laceamento após a primeira lavagem, tinta que mancha, zíper que quebra, rasgo no
+  entrepernas, bolso que cede com o celular.
+- **Cards:** de 4 genéricos para 6, cada um mapeado numa reclamação da pesquisa.
+- **Tabela de medidas:** ganhou o bloco "não chuta" — mede a calça que já te serve, multiplica por 2,
+  acha na coluna. A pesquisa aponta o medo do número errado como a maior barreira do e-commerce, e
+  divergência de medida como reclamação própria. Também passou a dizer que a medida saiu da peça
+  real, com trena, não da tabela do fabricante.
+- **Ficha técnica:** gramatura ganhou explicação (abaixo de 10oz rasga cedo, acima de 12oz vira calça
+  de trabalho) — número solto não significa nada para quem compra.
+- **Ofertas:** entrou o **kit de 3**. A pesquisa registra grande aceitação de kit para renovar o
+  guarda-roupa de uma vez.
+- **FAQ:** de 6 para 9, com as objeções novas — encolhe/lacea, solta tinta, zíper e botão, bolso com
+  celular. A resposta do zíper manda conferir a foto do carrossel.
+
+**A decisão mais importante desta rodada — `lp/CLAIMS.md`.** Praticamente toda copy nova é
+**afirmação sobre a peça**, não sobre a oferta: "não encolhe", "não solta tinta", "zíper de metal",
+"forro de sarja". Nenhuma foi confirmada com o fornecedor. Escrevi as 7 num documento com a pergunta
+a fazer e como testar cada uma, e marquei os blocos no HTML com `<!-- ⚠️ CLAIMS -->`.
+
+**Por que isso importa mais aqui do que em infoproduto:** a pesquisa é uma lista de marcas grandes
+(Levi's, Renner, Riachuelo, Hering) sendo processadas no Reclame Aqui por esses defeitos exatos. Se
+a nossa calça tiver o mesmo problema e a página afirmar o contrário, a gente não erra a copy — vira
+a próxima reclamação da lista, com a conta de anúncio junto. **Regra: claim que voltar negativo sai
+da página, não vira linguagem vaga.**
+
+**O que a página deliberadamente NÃO afirma:** nada sobre durar X anos (não há cliente com a calça
+há X anos) e nenhuma comparação com marca citada pelo nome — posiciona contra o problema, não contra
+a marca.
+
+**Verificado no navegador:** 198 elementos com texto, **0 falhas de contraste** (eram 164 antes). O
+selo novo do kit 3 usa `--copper-ink` e mede 6,64:1 — com o cobre puro teria dado 3,74:1 e falhado.
+Reveal 11/11, sem vazamento horizontal, os 4 links de checkout continuam `<a href>`. Página passou de
+8.718px para 10.731px de altura.
+
+**Ficou faltando da pesquisa:** o **vídeo de elasticidade** (a calça esticando e voltando). É a prova
+mais forte do ângulo de conforto e nenhuma foto substitui — elastano não aparece em imagem parada.
+Anotado no `PROMPTS_IMAGENS.md`. E a foto do zíper virou obrigatória, porque o FAQ agora manda o
+leitor conferi-la.
+
+**Próximo passo:** Fernando roda a lista do `CLAIMS.md` com o fornecedor. Sem isso a página não sobe.
+
+---
+
 ## 2026-07-31 — Repositório no GitHub
 
 **O quê:** `git init` + primeiro commit + repositório remoto **privado**

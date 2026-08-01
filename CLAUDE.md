@@ -61,6 +61,16 @@ seções mudam de natureza — **não** copiar "acesso vitalício / funciona off
 ### Diário de bordo é obrigatório
 Toda evolução relevante do projeto vai para [NOTES.md](NOTES.md): decisões tomadas, o que foi implementado, resultados de teste, mudanças de rota, números de campanha. Anotar **na hora**, não no fim da sessão. Formato e critério do que registrar estão no próprio NOTES.md.
 
+### Afirmação sobre a peça exige verificação
+A copy diz que a calça não encolhe, não solta tinta, tem zíper de metal e forro de sarja. **Nenhuma
+dessas foi confirmada com o fornecedor.** Cada uma está rastreada em [lp/CLAIMS.md](lp/CLAIMS.md),
+com a pergunta a fazer e como testar.
+
+Regra: afirmação que voltar negativa ou sem resposta **sai da página**. Não vira "talvez" nem
+linguagem vaga. A pesquisa de objeções mostra marcas grandes sendo processadas no Reclame Aqui por
+exatamente esses defeitos — prometer o oposto sem checar é virar a próxima reclamação, e derrubar a
+conta de anúncio junto.
+
 ### Segredos
 - Chaves reais vivem **apenas** no `.env`, que é ignorado pelo git.
 - Toda variável nova precisa entrar também no `.env.example` — com valor de exemplo, nunca o real.
@@ -82,8 +92,10 @@ calca/
 ├── marca.md               # 🎨 FONTE DA VERDADE DA COR (paleta + estilo-mestre)
 ├── DESING.md              # ⚠️ scrape da Levi's — NÃO usar, ver §3.2
 ├── .env / .env.example / .gitignore
+├── objecoes_e_desejos_jeans_masculino.md   # pesquisa de objeções (base da copy)
 └── lp/                    # landing page (masculino)
     ├── wrangler.toml      # Worker assets-only, sem `main`
+    ├── CLAIMS.md          # 🚫 afirmações a confirmar com o fornecedor ANTES de publicar
     └── public/            # ← só isto vai pro ar
         ├── index.html     # HTML + CSS inline (fonte-de-verdade do CSS)
         ├── script.js      # JS vanilla, defer
