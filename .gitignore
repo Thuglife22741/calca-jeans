@@ -1,0 +1,90 @@
+# =============================================================
+# Segredos — NUNCA versionar
+# =============================================================
+.env
+.env.*
+.env.local
+.env.development
+.env.production
+*.pem
+*.key
+secrets/
+
+# Exceção: o template é versionado
+!.env.example
+
+# =============================================================
+# Dependências
+# =============================================================
+node_modules/
+.pnp
+.pnp.js
+.yarn/
+jspm_packages/
+
+# =============================================================
+# Build / output
+# =============================================================
+dist/
+build/
+out/
+.next/
+.nuxt/
+.output/
+.vercel/
+.wrangler/
+.cache/
+.parcel-cache/
+
+# =============================================================
+# Logs e temporários
+# =============================================================
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs/
+tmp/
+temp/
+.claude/scratchpad/
+
+# =============================================================
+# Testes e cobertura
+# =============================================================
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+
+# =============================================================
+# Editor / SO
+# =============================================================
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =============================================================
+# Supabase (local)
+# =============================================================
+.supabase/
+supabase/.branches/
+supabase/.temp/
+
+# =============================================================
+# LP — originais pesados das fotos (fonte p/ reprocessar, não vão pro ar)
+# =============================================================
+lp/originais/
+.playwright-mcp/
+
+# Screenshots de verificacao do Playwright
+hero.png
+page-*.png
+
+# Skill clonada — repositorio git proprio, nao versionar aqui
+fop-tracking/

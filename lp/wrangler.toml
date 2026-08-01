@@ -1,0 +1,9 @@
+name = "calca-jeans-masculina"
+compatibility_date = "2026-07-31"
+
+# Assets-only: sem `main`. Serve estático puro na borda — modo mais rápido
+# e não consome requisição de Worker. NÃO adicionar `main` numa LP estática.
+[assets]
+directory = "./public"
+html_handling = "auto-trailing-slash"
+not_found_handling = "404-page"

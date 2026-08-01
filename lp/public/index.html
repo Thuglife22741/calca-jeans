@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>[NOME-PROVISORIO] — Jeans masculino com elastano que não aperta</title>
+<meta name="description" content="Calça jeans masculina com elastano. Veste o dia inteiro sem apertar na cintura nem prender na coxa. Troca de tamanho garantida.">
+<meta name="theme-color" content="#2F4E86">
+<meta name="robots" content="index,follow">
+<!-- favicon inline: evita uma requisição e o 404 no console. Trocar pelo logo depois. -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232F4E86'/%3E%3Cpath d='M11 8h10l-1 16h-3l-1-9-1 9h-3z' fill='%23F6F1E8'/%3E%3C/svg%3E">
+
+<!-- gate de JS: evita conteúdo invisível se o script falhar -->
+<script>document.documentElement.classList.add('js')</script>
+
+<!-- ═══ TRACKING ═══ Pixel / UTMify / Clarity entram AQUI, no topo do head.
+     Ver a skill fop-tracking (CAPI server-side em Edge Function do Supabase).
+     PENDENTE: IDs ainda não definidos. -->
+
+<!-- LCP: descomentar quando a foto real do hero existir
+<link rel="preload" as="image" href="assets/hero.webp" fetchpriority="high">
+-->
+
+<style>
+/* ══════════════════════════════════════════════════════════════
+   TOKENS — copiados de ../../marca.md. NÃO inventar cor aqui:
+   se precisar de um tom novo, adicione ao marca.md primeiro.
+   ══════════════════════════════════════════════════════════════ */
+:root{
+  /* superfícies — areia quente, nunca branco puro */
+  --bg:#F6F1E8; --bg-soft:#EAE0D0; --line:#DDD2BE;
+  /* texto */
+  --ink:#1A1F2B;        /* 14,64:1 sobre --bg */
+  --ink-soft:#5B6270;   /* 5,45:1 sobre --bg · 4,69:1 sobre --bg-soft */
+  /* marca: índigo. Escuro o bastante p/ servir como texto E como fundo */
+  --brand:#2F4E86;      /* 7,30:1 como texto · 8,22:1 com branco por cima */
+  --brand-2:#3E6AAE;    /* 5,42:1 com branco — ponta clara do gradiente */
+  --brand-grad:linear-gradient(90deg,var(--brand),var(--brand-2));
+  --brand-soft:#E4EAF4;
+  /* acento cobre: SÓ decoração. Texto usa --copper-ink */
+  --copper:#C0703A;     /* branco por cima = 3,74:1 → NÃO usar como fundo de texto */
+  --copper-ink:#8F4A18; /* 5,91:1 sobre --bg */
+  --copper-soft:#F5E4D6;
+  /* positivo */
+  --ok-ink:#1B7A44; --ok-soft:#E2F3E8;
+  /* tipografia — zero webfont */
+  --display:Georgia,'Noto Serif','Times New Roman',serif;
+  --body:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  /* layout */
+  --radius:18px; --maxw:480px;
+  --shadow-sm:0 6px 18px -10px rgba(26,31,43,.24);
+  --shadow-md:0 14px 34px -16px rgba(26,31,43,.34);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--bg);color:var(--ink);
+     font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+/* foco visível — regra herdada do DESING.md, não remover */
+:focus-visible{outline:3px solid var(--brand);outline-offset:3px;border-radius:6px}
+
+/* ── tipografia ── */
+h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:-.4px;line-height:1.08}
+h1{font-size:37px;text-transform:uppercase}
+h2{font-size:33px;text-transform:uppercase}
+h3{font-size:20px}
+.lead{font-size:18px;color:var(--ink-soft);margin-top:14px}
+.hl{color:var(--brand)}
+.hl-c{color:var(--copper-ink)}
+
+/* ── botões ── */
+.btn{display:block;width:100%;text-align:center;background:var(--brand-grad);color:#fff;
+     font-family:var(--body);font-size:16px;font-weight:800;text-transform:uppercase;
+     letter-spacing:.4px;text-decoration:none;padding:17px 18px;border:0;border-radius:14px;
+     box-shadow:0 12px 26px -12px rgba(47,78,134,.75);cursor:pointer;
+     transition:transform 150ms ease,box-shadow 150ms ease}
+.btn:hover{transform:translateY(-1px);box-shadow:0 16px 30px -12px rgba(47,78,134,.85)}
+.btn:active{transform:translateY(0)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn.big{font-size:17px;padding:19px 18px}
+.btn.ghost{background:transparent;color:var(--brand);border:2px solid var(--brand);box-shadow:none}
+.btn-sub{text-align:center;font-size:13px;color:var(--ink-soft);margin-top:10px}
+
+.pulse{animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{
+  0%,100%{box-shadow:0 12px 26px -12px rgba(47,78,134,.75),0 0 0 0 rgba(47,78,134,.45)}
+  50%{box-shadow:0 14px 30px -10px rgba(47,78,134,.8),0 0 0 12px rgba(47,78,134,0)}
+}
+.pulse:hover,.pulse:active{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.pulse{animation:none!important}}
+
+/* ── topbar ── */
+.topbar{position:sticky;top:0;z-index:40;background:var(--brand-grad);color:#fff;
+        font-size:13.5px;font-weight:700;text-align:center;padding:9px 14px;letter-spacing:.2px}
+
+/* ── seções ── */
+.sec{padding:44px 0}
+.band{background:var(--bg-soft)}
+.band.tilt{margin:34px 0;position:relative;background:var(--bg-soft)}
+.band.tilt::before,.band.tilt::after{content:"";position:absolute;left:0;right:0;height:48px;
+  background:var(--bg-soft);z-index:-1}
+.band.tilt::before{top:-24px;transform:skewY(-2.2deg)}
+.band.tilt::after{bottom:-24px;transform:skewY(-2.2deg)}
+
+.eyebrow{display:inline-block;background:var(--brand-grad);color:#fff;font-size:11.5px;
+  font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:7px 14px;border-radius:50px}
+.sec-head{text-align:center;margin-bottom:26px}
+.sec-head h2{margin-top:14px}
+
+/* ── hero ── */
+.hero{padding:34px 0 10px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-90px;right:-70px;width:240px;height:240px;
+  border-radius:50%;background:var(--brand-soft);filter:blur(50px);z-index:-1}
+.hero-media{margin:26px 0 22px}
+.hero-selos{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}
+.selo{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--line);
+  border-radius:50px;padding:7px 13px;font-size:12.5px;font-weight:600;color:var(--ink)}
+.selo b{color:var(--copper-ink);font-weight:800}
+
+/* ── placeholder de imagem ── */
+.ph-img{position:relative;width:100%;aspect-ratio:4/5;border-radius:var(--radius);
+  background:repeating-linear-gradient(45deg,var(--bg-soft),var(--bg-soft) 12px,#e0d4bf 12px,#e0d4bf 24px);
+  border:2px dashed var(--copper);display:grid;place-items:center;text-align:center;padding:16px}
+.ph-img::after{content:attr(data-ph);font-family:var(--body);font-size:12px;font-weight:800;
+  text-transform:uppercase;letter-spacing:.6px;color:var(--copper-ink);
+  background:rgba(246,241,232,.94);border-radius:8px;padding:8px 12px;max-width:90%}
+.ph-img.wide{aspect-ratio:16/10}
+.ph-img.sq{aspect-ratio:1/1}
+
+/* ── comparativo ── */
+.vs{display:grid;gap:12px;position:relative}
+.vs-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px 18px;
+  box-shadow:var(--shadow-sm)}
+.vs-card h3{font-size:17px;text-transform:uppercase;letter-spacing:.3px}
+.vs-card ul{list-style:none;margin-top:12px;display:grid;gap:8px}
+.vs-card li{font-size:15px;padding-left:24px;position:relative;color:var(--ink-soft)}
+.vs-card li::before{position:absolute;left:0;top:0;font-weight:800}
+.vs-card.dim{opacity:.85}
+.vs-card.dim h3{color:var(--ink-soft);text-decoration:line-through}
+.vs-card.dim li::before{content:"✕";color:#9a3b2f}
+.vs-card.win{border:2px solid var(--brand);box-shadow:var(--shadow-md)}
+.vs-card.win h3{color:var(--brand)}
+.vs-card.win li{color:var(--ink)}
+.vs-card.win li::before{content:"✓";color:var(--brand)}
+.vs-mid{text-align:center;font-family:var(--display);font-size:15px;font-weight:700;
+  color:var(--ink-soft);letter-spacing:2px}
+
+/* ── carrossel ── */
+.caro{position:relative}
+.caro-viewport{overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.caro-track{display:flex;gap:16px;will-change:transform;touch-action:pan-y;cursor:grab;user-select:none}
+.caro-track.grabbing{cursor:grabbing}
+.aslide{flex:0 0 240px}
+.aslide-btn{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;
+  border-radius:14px;overflow:hidden;line-height:0}
+.aslide-btn img{pointer-events:none;width:100%;height:auto;border-radius:14px}
+.aslide .ph-img{pointer-events:none}
+.caro-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:6;width:46px;height:46px;
+  border-radius:50%;background:#fff;border:1px solid var(--line);
+  box-shadow:0 8px 22px -8px rgba(26,31,43,.4);color:var(--brand);font-size:30px;line-height:1;
+  display:grid;place-items:center;cursor:pointer}
+.caro-nav.prev{left:8px}.caro-nav.next{right:8px}
+.caro-cap{text-align:center;font-size:13px;color:var(--ink-soft);margin-top:14px}
+
+/* ── cards de feature ── */
+.cards{display:grid;gap:14px}
+.card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px 18px 20px 22px;box-shadow:var(--shadow-sm);overflow:hidden}
+.card::after{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--copper)}
+.card.i::after{background:var(--brand)}
+.card h3{margin-bottom:6px}
+.card p{font-size:15px;color:var(--ink-soft)}
+.card-ico{font-size:26px;line-height:1;margin-bottom:10px}
+
+/* ── passos ── */
+.steps{display:grid;gap:14px;counter-reset:s}
+.step{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 18px 18px 62px;box-shadow:var(--shadow-sm)}
+.step::before{counter-increment:s;content:counter(s);position:absolute;left:16px;top:18px;
+  width:32px;height:32px;border-radius:50%;background:var(--brand-grad);color:#fff;
+  font-weight:800;font-size:15px;display:grid;place-items:center}
+.step h3{font-size:17px}
+.step p{font-size:15px;color:var(--ink-soft);margin-top:4px}
+
+/* ── stat tiles ── */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 12px;text-align:center}
+.stat b{display:block;font-family:var(--display);font-size:26px;color:var(--brand);line-height:1.1}
+.stat span{display:block;font-size:12.5px;color:var(--ink-soft);margin-top:4px}
+
+/* ── tabela de medidas ── */
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);
+  border-radius:14px;background:#fff}
+table{border-collapse:collapse;width:100%;min-width:340px;font-size:14px}
+caption{caption-side:bottom;font-size:12.5px;color:var(--ink-soft);padding:10px 12px;text-align:left}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line)}
+thead th{background:var(--brand-soft);color:var(--brand);font-size:12px;text-transform:uppercase;
+  letter-spacing:.6px}
+tbody tr:last-child td{border-bottom:0}
+
+/* ── honestidade ── */
+.honest{background:#fff;border:1px solid var(--line);border-left:6px solid var(--copper);
+  border-radius:14px;padding:22px 20px}
+.honest h2{font-size:26px;margin-bottom:12px}
+.honest p{color:var(--ink-soft);font-size:16px}
+.honest p+p{margin-top:12px}
+
+/* ── ofertas ── */
+.plans{display:grid;gap:16px}
+.plan{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px 20px;box-shadow:var(--shadow-sm)}
+.plan.best{border:2px solid var(--brand);box-shadow:var(--shadow-md)}
+.plan-tag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--brand-grad);
+  color:#fff;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;
+  padding:6px 14px;border-radius:50px;white-space:nowrap}
+.plan h3{text-align:center;font-size:22px}
+.plan-desc{text-align:center;font-size:14px;color:var(--ink-soft);margin-top:6px}
+.price{text-align:center;margin:18px 0}
+.price s{display:block;font-size:15px;color:var(--ink-soft)}
+.price b{font-family:var(--display);font-size:58px;color:var(--brand);line-height:1;display:block}
+.price b small{font-size:24px;vertical-align:super}
+.price span{display:block;font-size:13.5px;color:var(--ink-soft);margin-top:6px}
+.plan ul{list-style:none;display:grid;gap:8px;margin-bottom:20px}
+.plan li{font-size:15px;padding-left:24px;position:relative}
+.plan li::before{content:"✓";position:absolute;left:0;color:var(--brand);font-weight:800}
+.badge-row{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.badge{background:var(--copper-soft);color:var(--copper-ink);font-size:12px;font-weight:700;
+  padding:6px 12px;border-radius:50px}
+
+/* ── garantia ── */
+.gar{text-align:center;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 20px;box-shadow:var(--shadow-sm)}
+.gar-selo{width:104px;height:104px;margin:0 auto 16px;border-radius:50%;
+  background:var(--brand-grad);color:#fff;display:grid;place-items:center;align-content:center;
+  box-shadow:var(--shadow-md)}
+.gar-selo b{font-family:var(--display);font-size:38px;line-height:1}
+.gar-selo span{font-size:11px;font-weight:800;letter-spacing:1.2px}
+.gar p{color:var(--ink-soft);font-size:15.5px;margin-top:10px}
+
+/* ── FAQ ── */
+.faq{display:grid;gap:10px}
+details{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+summary{cursor:pointer;padding:16px 44px 16px 18px;font-weight:700;font-size:15.5px;position:relative;
+  list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);
+  font-size:22px;color:var(--brand);font-weight:800}
+details[open] summary::after{content:"–"}
+details p{padding:0 18px 18px;font-size:15px;color:var(--ink-soft)}
+
+/* ── CTA final ── */
+.final{background:var(--brand-grad);color:#fff;border-radius:22px;padding:32px 22px;text-align:center}
+.final h2{color:#fff;font-size:29px}
+.final p{margin:12px 0 22px;font-size:16px;color:rgba(255,255,255,.94)}
+.final .btn{background:#fff;color:var(--brand);box-shadow:0 12px 26px -12px rgba(0,0,0,.5)}
+
+/* ── rodapé ── */
+footer{text-align:center;padding:34px 0 110px;color:var(--ink-soft);font-size:13px}
+footer b{display:block;font-family:var(--display);font-size:17px;color:var(--ink);margin-bottom:6px;
+  text-transform:uppercase;letter-spacing:1px}
+
+/* ── sticky CTA ── */
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  background:rgba(246,241,232,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);
+  transform:translateY(110%);transition:transform 300ms ease;pointer-events:none}
+.sticky-cta.show{transform:translateY(0);pointer-events:auto}
+.sticky-cta .inner{max-width:var(--maxw);margin:0 auto}
+@media(prefers-reduced-motion:reduce){.sticky-cta{transition:none}}
+
+/* ── modal / lightbox ── */
+.overlay{position:fixed;inset:0;z-index:80;background:rgba(26,31,43,.78);display:none;
+  align-items:center;justify-content:center;padding:20px}
+.overlay.open{display:flex}
+.modal{background:var(--bg);border-radius:20px;max-width:400px;width:100%;padding:28px 22px;
+  position:relative;box-shadow:var(--shadow-md);text-align:center;max-height:90vh;overflow-y:auto}
+.modal h3{font-size:24px;text-transform:uppercase}
+.modal p{font-size:15px;color:var(--ink-soft);margin:12px 0 18px}
+.x{position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:50%;background:#fff;
+  border:1px solid var(--line);font-size:22px;line-height:1;color:var(--ink);cursor:pointer;
+  display:grid;place-items:center}
+.lb-img{max-width:100%;max-height:82vh;width:auto;border-radius:14px}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;
+  background:#fff;border:1px solid var(--line);box-shadow:0 8px 22px -8px rgba(0,0,0,.6);
+  color:var(--brand);font-size:32px;line-height:1;display:grid;place-items:center;cursor:pointer;z-index:2}
+.lb-nav.prev{left:12px}.lb-nav.next{right:12px}
+.lb-close{position:absolute;top:16px;right:16px;width:46px;height:46px;border-radius:50%;background:#fff;
+  border:1px solid var(--line);box-shadow:0 8px 22px -8px rgba(0,0,0,.6);font-size:26px;line-height:1;
+  color:var(--ink);cursor:pointer;display:grid;place-items:center;z-index:2}
+
+/* ── reveal (com gate de JS) ── */
+.js .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.js .reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}}
+
+/* ── desktop: degradação graciosa, 1 coluna ── */
+@media(min-width:760px){
+  h1{font-size:48px}
+  h2{font-size:37px}
+  .sec{padding:56px 0}
+  .stats{grid-template-columns:repeat(4,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ 1. BARRA DO TOPO ═══
+     Carrega o DIFERENCIAL, não contagem regressiva falsa (regra da honestidade). -->
+<div class="topbar">Jeans com elastano · Veste o dia inteiro sem apertar</div>
+
+<!-- ═══ 2. HERO ═══ -->
+<header class="hero">
+  <div class="wrap">
+    <h1>A calça jeans que <span class="hl">não aperta</span> depois do almoço</h1>
+    <p class="lead">Jeans masculino com elastano: cede onde precisa ceder, segura onde precisa segurar.
+      Você senta, dirige, agacha e esquece que está de jeans.</p>
+
+    <div class="hero-media">
+      <!-- LCP: trocar por <img src="assets/hero.webp" width="540" height="675"
+           loading="eager" fetchpriority="high" decoding="async" alt="..."> -->
+      <div class="ph-img" data-ph="HERO — homem vestindo a calça, corpo inteiro, luz natural"></div>
+    </div>
+
+    <a class="btn big pulse" href="#ofertas" data-cta="hero">Quero a minha</a>
+    <p class="btn-sub">Escolha seu tamanho na próxima tela</p>
+
+    <div class="hero-selos">
+      <span class="selo">📏 Tamanhos <b>[38 ao 48]</b></span>
+      <span class="selo">🔄 Troca de tamanho</span>
+      <span class="selo">🛡️ 7 dias para devolver</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ═══ 3. COMPARATIVO — o posicionamento, cedo e visual ═══ -->
+  <section class="sec band tilt reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">A diferença</span>
+        <h2>Não é jeans <span class="hl-c">rígido</span>. É jeans <span class="hl">com elastano</span>.</h2>
+      </div>
+
+      <div class="vs">
+        <div class="vs-card dim">
+          <h3>Jeans 100% algodão</h3>
+          <ul>
+            <li>Aperta a cintura quando você senta</li>
+            <li>Prende na coxa e no joelho ao agachar</li>
+            <li>Precisa "amaciar" por semanas de uso</li>
+            <li>Marca vinco atrás do joelho</li>
+          </ul>
+        </div>
+        <div class="vs-mid">VS</div>
+        <div class="vs-card win">
+          <h3>[NOME-PROVISORIO] com elastano</h3>
+          <ul>
+            <li>Acompanha o movimento e volta ao lugar</li>
+            <li>Sobra de conforto na coxa sem parecer largo</li>
+            <li>Confortável desde a primeira vez que veste</li>
+            <li>Cai reto o dia inteiro</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 4. POR DENTRO DO PRODUTO — carrossel com lightbox ═══ -->
+  <section class="sec reveal">
+    <div class="wrap sec-head">
+      <span class="eyebrow">De perto</span>
+      <h2>Olha o tecido<br>de <span class="hl">pertinho</span></h2>
+    </div>
+
+    <div class="caro" data-caro data-dir="1" data-lightbox>
+      <button class="caro-nav prev" aria-label="Foto anterior">‹</button>
+      <div class="caro-viewport">
+        <div class="caro-track">
+          <!-- Trocar cada .ph-img por <button class="aslide-btn"><img src="assets/pN.webp"
+               width="520" height="650" loading="lazy" decoding="async" alt="..."></button> -->
+          <div class="aslide"><div class="ph-img" data-ph="Frente inteira"></div></div>
+          <div class="aslide"><div class="ph-img" data-ph="Costas / bolso traseiro"></div></div>
+          <div class="aslide"><div class="ph-img" data-ph="Close do tecido e da costura"></div></div>
+          <div class="aslide"><div class="ph-img" data-ph="Cós e botão"></div></div>
+          <div class="aslide"><div class="ph-img" data-ph="Barra / caimento no sapato"></div></div>
+        </div>
+      </div>
+      <button class="caro-nav next" aria-label="Próxima foto">›</button>
+    </div>
+    <p class="caro-cap">Toque numa foto para ampliar · arraste para o lado</p>
+  </section>
+
+  <!-- ═══ 5. O QUE FAZ ═══ -->
+  <section class="sec band tilt reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Por que veste bem</span>
+        <h2>Quatro coisas que <span class="hl">você sente</span> no primeiro dia</h2>
+      </div>
+      <div class="cards">
+        <div class="card i">
+          <div class="card-ico">🧘</div>
+          <h3>Elastano na medida certa</h3>
+          <p>Estica o suficiente para acompanhar o movimento, sem virar legging nem perder a forma.</p>
+        </div>
+        <div class="card">
+          <div class="card-ico">🦵</div>
+          <h3>Modelagem que respeita a coxa</h3>
+          <p>Folga onde o corpo precisa, sem sobrar pano na canela.</p>
+        </div>
+        <div class="card i">
+          <div class="card-ico">🎨</div>
+          <h3>Índigo que não desbota fácil</h3>
+          <p>A cor aguenta a lavagem de máquina e continua parecendo calça nova.</p>
+        </div>
+        <div class="card">
+          <div class="card-ico">🧵</div>
+          <h3>Costura reforçada na virilha</h3>
+          <p>O ponto que mais abre em calça barata é o que mais reforçamos aqui.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 6. COMO FUNCIONA (produto físico: pedido → entrega) ═══ -->
+  <section class="sec reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Simples assim</span>
+        <h2>Do pedido<br>ao <span class="hl">seu armário</span></h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3>Confere seu tamanho</h3>
+          <p>A tabela de medidas abaixo diz exatamente qual número pedir. Na dúvida, mede uma calça que já te serve.</p>
+        </div>
+        <div class="step">
+          <h3>Faz o pedido</h3>
+          <p>Pagamento no PIX ou cartão. Confirmação na hora.</p>
+        </div>
+        <div class="step">
+          <h3>Recebe em casa</h3>
+          <p>Chega com código de rastreio. Se o tamanho não servir, você troca.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 7. FICHA TÉCNICA ═══ -->
+  <section class="sec band tilt reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Ficha técnica</span>
+        <h2>O que <span class="hl">tem dentro</span></h2>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>[98%]</b><span>algodão</span></div>
+        <div class="stat"><b>[2%]</b><span>elastano</span></div>
+        <div class="stat"><b>[11oz]</b><span>peso do tecido</span></div>
+        <div class="stat"><b>[38–48]</b><span>tamanhos</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 8. TABELA DE MEDIDAS — seção crítica em produto físico ═══ -->
+  <section class="sec reveal" id="medidas">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Tabela de medidas</span>
+        <h2>Qual número <span class="hl">é o seu</span></h2>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <caption>PENDENTE: preencher com as medidas reais do fornecedor. Medidas em centímetros,
+            tiradas com a peça deitada e multiplicadas por 2 na cintura.</caption>
+          <thead>
+            <tr><th scope="col">Tam.</th><th scope="col">Cintura</th><th scope="col">Quadril</th><th scope="col">Comprimento</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">38</th><td>[--]</td><td>[--]</td><td>[--]</td></tr>
+            <tr><th scope="row">40</th><td>[--]</td><td>[--]</td><td>[--]</td></tr>
+            <tr><th scope="row">42</th><td>[--]</td><td>[--]</td><td>[--]</td></tr>
+            <tr><th scope="row">44</th><td>[--]</td><td>[--]</td><td>[--]</td></tr>
+            <tr><th scope="row">46</th><td>[--]</td><td>[--]</td><td>[--]</td></tr>
+            <tr><th scope="row">48</th><td>[--]</td><td>[--]</td><td>[--]</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 9. HONESTIDADE — no lugar de depoimento fabricado ═══ -->
+  <section class="sec band tilt reveal">
+    <div class="wrap">
+      <div class="honest">
+        <h2>Não tenho depoimento para te mostrar.</h2>
+        <p>A marca é nova e eu não vou inventar cliente que não existe, nem colar print de WhatsApp
+          que eu mesmo escrevi. Você já viu isso em página demais.</p>
+        <p>O que eu tenho é o seguinte: a calça vai até você, você veste em casa com calma, e se não
+          servir ou não for o que você esperava, devolve. O risco é meu, não seu.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 10. OFERTAS ═══ -->
+  <section class="sec reveal" id="ofertas">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Escolha a sua</span>
+        <h2>Quanto mais leva,<br><span class="hl">menos custa cada uma</span></h2>
+      </div>
+
+      <div class="badge-row">
+        <span class="badge">PIX ou cartão</span>
+        <span class="badge">Troca de tamanho</span>
+        <span class="badge">Envio com rastreio</span>
+      </div>
+
+      <div class="plans">
+        <div class="plan">
+          <h3>1 calça</h3>
+          <p class="plan-desc">Para testar o caimento</p>
+          <div class="price">
+            <b><small>R$</small>[--]</b>
+            <span>à vista no PIX</span>
+          </div>
+          <ul>
+            <li>1 calça, tamanho e cor à sua escolha</li>
+            <li>Troca de tamanho</li>
+            <li>7 dias para devolver</li>
+          </ul>
+          <!-- IMPORTANTE: <a href> real, nunca <button> — o Pixel marca InitiateCheckout por URL -->
+          <a class="btn" href="https://EXEMPLO-CHECKOUT.com/1un" data-checkout="basico" data-cta="plano-1">Quero 1 calça</a>
+        </div>
+
+        <div class="plan best">
+          <span class="plan-tag">★ Mais escolhido</span>
+          <h3>Kit 2 calças</h3>
+          <p class="plan-desc">Uma para trabalhar, uma para sair</p>
+          <div class="price">
+            <s>de R$ [--]</s>
+            <b><small>R$</small>[--]</b>
+            <span>ou [--]x de R$ [--] no cartão</span>
+          </div>
+          <ul>
+            <li>2 calças, escolhe os tamanhos e as cores</li>
+            <li>Economia de R$ [--] no total</li>
+            <li>Troca de tamanho nas duas</li>
+            <li>7 dias para devolver</li>
+          </ul>
+          <a class="btn pulse" href="https://EXEMPLO-CHECKOUT.com/2un" data-checkout="completo" data-cta="plano-2">Quero o kit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 11. GARANTIA ═══ -->
+  <section class="sec band tilt reveal">
+    <div class="wrap">
+      <div class="gar">
+        <div class="gar-selo"><b>7</b><span>DIAS</span></div>
+        <h2>Vestiu e não gostou?<br><span class="hl">Devolve.</span></h2>
+        <p>Você tem 7 dias corridos a partir do recebimento para desistir da compra e receber o valor
+          de volta — é o seu direito pelo Código de Defesa do Consumidor, e aqui a gente cumpre sem
+          discussão.</p>
+        <p>Se o problema for só o tamanho, é mais simples ainda: a gente troca.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 12. FAQ ═══
+       REGRA: só entra pergunta que a copy sustenta. Onde a resposta depende de decisão
+       ainda não tomada (frete, prazo, cores), o texto está marcado [PENDENTE].
+       NÃO preencher por inferência — é o mesmo erro de fabricar depoimento. -->
+  <section class="sec reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Dúvidas</span>
+        <h2>O que <span class="hl">perguntam</span></h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>E se o tamanho não servir?</summary>
+          <p>Você pede a troca e manda a calça de volta. [PENDENTE: definir quem paga o frete da
+            troca e em quantos dias a nova é enviada.]</p>
+        </details>
+        <details>
+          <summary>Quanto tempo demora para chegar?</summary>
+          <p>[PENDENTE: prazo real por região, depois de definir a transportadora.]</p>
+        </details>
+        <details>
+          <summary>O elastano deixa a calça com cara de moletom?</summary>
+          <p>Não. São [2%] de elastano em [98%] de algodão — o suficiente para a calça acompanhar o
+            movimento, mantendo a aparência e a textura de jeans de verdade.</p>
+        </details>
+        <details>
+          <summary>Pode lavar na máquina?</summary>
+          <p>Pode. Lave do avesso, em água fria, e evite a secadora — assim o índigo dura muito mais.</p>
+        </details>
+        <details>
+          <summary>Serve para quem tem coxa mais larga?</summary>
+          <p>É exatamente para quem a modelagem foi pensada: folga na coxa sem sobrar pano na canela.
+            Confira a tabela de medidas para acertar o número.</p>
+        </details>
+        <details>
+          <summary>Como eu pago?</summary>
+          <p>PIX ou cartão de crédito. [PENDENTE: confirmar parcelamento depois de escolher o gateway.]</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 13. CTA FINAL ═══ -->
+  <section class="sec reveal">
+    <div class="wrap">
+      <div class="final">
+        <h2>Chega de desabotoar<br>escondido na mesa</h2>
+        <p>Uma calça jeans que você veste de manhã e esquece até a hora de dormir.</p>
+        <a class="btn" href="#ofertas" data-cta="final">Quero a minha</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══ 14. RODAPÉ — sem links, sem contato, sem fuga ═══ -->
+<footer>
+  <div class="wrap">
+    <b>[NOME-PROVISORIO]</b>
+    © 2026 · Todos os direitos reservados
+  </div>
+</footer>
+
+<!-- ═══ 15. CTA FIXO ═══ -->
+<div class="sticky-cta" id="stickyCta" aria-hidden="true">
+  <div class="inner">
+    <a class="btn" href="#ofertas" data-cta="sticky" tabindex="-1">Quero a minha</a>
+  </div>
+</div>
+
+<!-- ═══ 16. MODAL DE UPSELL ═══ -->
+<div class="overlay" id="upsell" role="dialog" aria-modal="true" aria-labelledby="upsellTitle" data-close>
+  <div class="modal">
+    <button class="x" data-close-btn aria-label="Fechar">×</button>
+    <h3 id="upsellTitle">Leva a segunda por <span class="hl">R$ [--]</span>?</h3>
+    <p>Quem compra uma volta para comprar a segunda em [--] dias. Levando as duas agora, a segunda
+      sai por R$ [--] a menos — e você escolhe outro tamanho ou outra cor.</p>
+    <a class="btn pulse" href="https://EXEMPLO-CHECKOUT.com/2un" data-checkout="upsell" data-cta="upsell-sim">Quero as duas</a>
+    <button class="btn ghost" data-close-btn style="margin-top:10px">Não, quero só uma</button>
+  </div>
+</div>
+
+<!-- ═══ 17. LIGHTBOX ═══ -->
+<div class="overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+  <button class="lb-close" data-lb-close aria-label="Fechar">×</button>
+  <button class="lb-nav prev" data-lb-prev aria-label="Foto anterior">‹</button>
+  <img class="lb-img" id="lbImg" src="" alt="">
+  <button class="lb-nav next" data-lb-next aria-label="Próxima foto">›</button>
+</div>
+
+<script src="script.js" defer></script>
+
+<!-- ═══ BACKREDIRECT ═══ colar depois do script.js, ver §8.1 da skill.
+     PENDENTE: só ativar quando a página de recuperação existir. -->
+
+</body>
+</html>
